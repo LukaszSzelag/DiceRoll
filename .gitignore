@@ -1,0 +1,40 @@
+# Xcode
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+DerivedData/
+build/
+*.ipa
+
+# Swift Package Manager
+.build/
+
+# CocoaPods
+Pods/
+*.lock
+*.xcworkspace
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Archives
+*.xcarchive
+
+# SwiftPM resolved file (optional to ignore; keep if you want exact dependency versions)
+# Package.resolved
+
+# User-specific files
+.DS_Store
+*.swp
+*.swo
+
+# Logs
+*.log
