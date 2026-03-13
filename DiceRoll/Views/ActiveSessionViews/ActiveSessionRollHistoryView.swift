@@ -25,11 +25,13 @@ struct ActiveSessionRollHistoryView: View {
                             viewModel.filterRollHistory()
                         } label: {
                             Image(systemName: viewModel.filteringRollHistory ? "xmark.circle" : "person.circle")
-                                .textStyle(color: .black, font: .headline)
-                                .softShadowBackground(cornerRadius: .infinity)
+                                .asButton(.headline)
                         }
+                        .frame(width: 50, height: 50)
                     }
-                    if viewModel.filteringRollHistory {
+                    if !viewModel.filteringRollHistory {
+                        Spacer()
+                    } else {
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
                                 ForEach(viewModel.activeSession.players) { player in
@@ -38,11 +40,17 @@ struct ActiveSessionRollHistoryView: View {
                                     } label: {
                                         PokerChip(color: Color.decode(player.color), size: .small)
                                     }
+                                    .padding(2)
+                                    .background {
+                                        Circle()
+                                            .fill(.clear)
+                                            .stroke(viewModel.filterRollHistoryPlayer == player ? .black : .clear, lineWidth: 1)
+                                    }
+                                    .padding([.vertical, .leading], 2)
                                 }
                             }
                         }
                     }
-                    Spacer()
                 }
                 List {
                     ForEach(viewModel.filteredRollHistory) { rollRecord in
@@ -61,10 +69,7 @@ struct ActiveSessionRollHistoryView: View {
                                 Text("\(rollRecord.rollDate.formatted())")
                                     .textStyle(color: .white.opacity(0.8), font: .caption)
                             }
-                            
                             Spacer()
-                            
-                            
                         }
                         .frame(maxWidth: .infinity)
                         .padding(.trailing, 24)
@@ -82,7 +87,8 @@ struct ActiveSessionRollHistoryView: View {
 
 #Preview {
     ZStack {
-        GradientBackground()
-        ActiveSessionRollHistoryView(viewModel: .init(activeSession: .example()))
+        GradientBackground() {
+            ActiveSessionRollHistoryView(viewModel: .init(activeSession: .example()))
+        }
     }
 }

@@ -14,12 +14,7 @@ struct MainMenuView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                GradientBackground()
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        goToSessions = true
-                    }
+            GradientBackground() {
                 VStack(spacing: 12) {
                     HStack(spacing: 12) {
                         Logo()
@@ -29,7 +24,12 @@ struct MainMenuView: View {
                     Text("Tap anywhere to continue")
                         .textStyle(color: .white, font: .caption)
                 }
+                .padding()
                 .shadow(radius: 3, y: 2)
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                goToSessions = true
             }
             .navigationDestination(isPresented: $goToSessions) {
                 SessionsView()

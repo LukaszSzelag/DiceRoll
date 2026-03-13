@@ -19,10 +19,9 @@ struct SessionsView: View {
     
     
     var body: some View {
-        ZStack {
-            GradientBackground()
-            
-            VStack {
+        GradientBackground() {
+        
+            VStack(spacing: 12) {
                 Text("Pick the session")
                     .textStyle(font: .largeTitle)
                 
@@ -57,7 +56,6 @@ struct SessionsView: View {
                 }
             }
             .shadow(radius: 3, y: 2)
-            .navigationBarBackButtonHidden(true)
             .alert(isPresented: $viewModel.showDeleteAlert) {
                 Alert(title: Text("Are you sure?"), primaryButton: .destructive(Text("Delete")) {
                     viewModel.deleteSession(using: modelContext)

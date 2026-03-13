@@ -55,10 +55,8 @@ struct SessionsFilterBarView: View {
                     viewModel.showFilterBar()
                 } label: {
                     Image(systemName: "line.3.horizontal.decrease.circle")
-                        .textStyle(color: .black, font: .title)
-                        .softShadowBackground(cornerRadius: .infinity, padding: 8)
+                        .asButton(.title)
                 }
-                
                 
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -71,19 +69,18 @@ struct SessionsFilterBarView: View {
                 
                 NavigationLink(destination: AddSessionView()) {
                     Image(systemName: "plus.circle")
-                        .textStyle(color: .black, font: .title)
-                        .softShadowBackground(cornerRadius: .infinity, padding: 8)
+                        .asButton(.title)
                 }
             }
         }
-        .frame(width: .infinity)
         .animation(.snappy(duration: 0.3), value: viewModel.showingFilterBar)
     }
 }
 
 #Preview {
     ZStack {
-        GradientBackground()
-        SessionsFilterBarView(viewModel: .init())
+        GradientBackground() {
+            SessionsFilterBarView(viewModel: .init())
+        }
     }
 }

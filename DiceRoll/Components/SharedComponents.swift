@@ -17,10 +17,9 @@ struct SharedComponentsPreviews: PreviewProvider {
         Logo()
             .previewDisplayName("Logo")
         
-        ZStack {
-            GradientBackground()
+        
+        GradientBackground() {
             PokerChip(color: .orange, size: .medium, text: "Paolo Marolo")
-                
         }
         .previewDisplayName("PokerChip")
         
@@ -172,9 +171,23 @@ struct PokerChip: View {
     }
 }
 
-struct GradientBackground: View {
+struct GradientBackground<Content: View>: View {
+    
+    let content: Content
+    
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+    
     var body: some View {
-        LinearGradient(colors: [.themePeach, .themeRed], startPoint: .topLeading, endPoint: .bottom).ignoresSafeArea()
+        ZStack {
+            LinearGradient(colors: [.themePeach, .themeRed], startPoint: .topLeading, endPoint: .bottom).ignoresSafeArea()
+            
+            VStack(spacing: 12) {
+                content
+            }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

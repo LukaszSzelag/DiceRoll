@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Scratch: View {
     var body: some View {
-        GradientBackground()
+        GradientBackground() { }
     }
 }
 

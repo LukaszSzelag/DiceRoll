@@ -17,9 +17,7 @@ struct AddSessionView: View {
     
     var body: some View {
         @Bindable var viewModel = viewModel
-        ZStack {
-            GradientBackground()
-            
+        GradientBackground() {
             VStack(spacing: 12) {
                 Text("Add new session")
                     .textStyle(font: .largeTitle)
@@ -55,12 +53,11 @@ struct AddSessionView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.horizontal, 8)
                     .softShadowBackground(cornerRadius: .infinity)
-                    .opacity(viewModel.dataValid ? 1 : 0.5)
+                    .opacity(viewModel.dataValid ? 1 : 0.6)
                     .disabled(!viewModel.dataValid)
                 }
                 .padding()
             }
-            .navigationBarBackButtonHidden(true)
             .animation(.snappy(duration: 0.3), value: viewModel.cardViewState)
             .shadow(radius: 3, y: 2)
         }

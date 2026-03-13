@@ -29,9 +29,7 @@ struct AnimatedWelcomeView: View {
     }
     
     var body: some View {
-        ZStack {
-            GradientBackground()
-            
+        GradientBackground() {
             VStack {
                 DiceView(sides: sides)
                     .phaseAnimator(AnimPhases.allCases, trigger: animateToggle) { content, phase in

@@ -14,12 +14,11 @@ struct SessionCardView: View {
     let columns: [GridItem] = [
         GridItem(.flexible(), spacing: 6, alignment: nil),
         GridItem(.flexible(), spacing: 6, alignment: nil),
-        GridItem(.flexible(), spacing: 6, alignment: nil),
     ]
     
     var body: some View {
         CardView(title: session.name) {
-            VStack {
+            VStack(spacing: 6) {
                 Text("Created: \(session.dateCreated.formatted())")
                     .textStyle(color: .themeRed, font: .caption)
                 Text("Last activity: \(session.lastUpdated.formatted())")
@@ -36,6 +35,11 @@ struct SessionCardView: View {
                             Circle()
                                 .fill(Color.decode(session.players[index].color))
                                 .frame(width: 6)
+                                .padding(2)
+                                .background {
+                                    Circle()
+                                        .stroke(Color.black, lineWidth: 1)
+                                }
                             Text(session.players[index].name)
                                 .textStyle(color: .black, font: .caption)
                                 .lineLimit(1)

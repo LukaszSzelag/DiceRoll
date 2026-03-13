@@ -9,8 +9,7 @@ import SwiftUI
 
 struct DiceComponentsPreviews: PreviewProvider {
     static var previews: some View {
-        ZStack {
-            GradientBackground()
+        GradientBackground() {
             DiceView(size: 100, color: .black)
         }
     }

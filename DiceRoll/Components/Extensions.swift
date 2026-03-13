@@ -33,14 +33,10 @@ extension View {
             .bold()
     }
     
-    func asButton() -> some View {
+    func asButton(_ font: Font) -> some View {
         return self
-            .padding(8)
-            .background(.themeGold.gradient)
-            .cornerRadius(20)
-            .offset(y: -4)
-            .background(.themeDarkGold)
-            .cornerRadius(20)
+            .textStyle(color: .black, font: font)
+            .softShadowBackground(cornerRadius: .infinity)
     }
     
     func softShadowBackground<S: ShapeStyle>(color: S = LinearGradient(colors: [.themeGold, .themeDarkGold], startPoint: .top, endPoint: .bottom), cornerRadius: CGFloat = 12, padding: CGFloat = 8) -> some View {

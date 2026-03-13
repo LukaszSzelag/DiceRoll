@@ -42,8 +42,7 @@ struct ActiveSessionPlayerPickerView: View {
 }
 
 #Preview {
-    ZStack {
-        GradientBackground()
+    GradientBackground() {
         ActiveSessionPlayerPickerView(viewModel: .init(activeSession: .example()))
     }
 }

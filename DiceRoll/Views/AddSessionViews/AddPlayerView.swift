@@ -72,9 +72,8 @@ struct AddPlayerView: View {
                 } label: {
                     Image(systemName: "arrow.backward.circle")
                         .frame(maxWidth: .infinity)
-                        .textStyle(color: .black, font: .headline)
+                        .asButton(.headline)
                 }
-                
                 Button {
                     viewModel.addingSessionInfo()
                     viewModel.notChoosingColor()
@@ -82,10 +81,9 @@ struct AddPlayerView: View {
                 } label: {
                     Text("Add")
                         .frame(maxWidth: .infinity)
-                        .textStyle(color: .black, font: .headline)
-                        .softShadowBackground(cornerRadius: .infinity)
+                        .asButton(.headline)
                 }
-                .opacity(viewModel.newPlayerNameValid ? 1 : 0.5)
+                .opacity(viewModel.newPlayerNameValid ? 1 : 0.6)
                 .disabled(!viewModel.newPlayerNameValid)
             }
             .frame(maxWidth: .infinity)

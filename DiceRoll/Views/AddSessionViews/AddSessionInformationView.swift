@@ -64,8 +64,8 @@ struct AddSessionInformationView: View {
             Button("Add player", systemImage: "plus.circle") {
                 viewModel.addingPlayer()
             }
-            .textStyle(color: .black, font: .headline)
-            .softShadowBackground(cornerRadius: .infinity)
+            .asButton(.headline)
+            .opacity(viewModel.playerCountExceeded ? 0.6 : 1)
             .disabled(viewModel.playerCountExceeded)
         }
     }

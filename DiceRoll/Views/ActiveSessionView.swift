@@ -22,10 +22,8 @@ struct ActiveSessionView: View {
     }
     
     var body: some View {
-        ZStack {
-            GradientBackground()
-            
-            VStack {
+        GradientBackground() {
+            VStack(spacing: 12) {
                 HStack {
                     Button {
                         dismiss()
@@ -36,10 +34,12 @@ struct ActiveSessionView: View {
                     }
                     Spacer()
                     Text(viewModel.activeSession.name)
-                        .textStyle(font: .title)
+                        .textStyle(font: .largeTitle)
                         .lineLimit(1)
                         .minimumScaleFactor(0.5)
+                        .shadow(radius: 3, y: 2)
                 }
+                .padding(.horizontal)
                 
                 // MARK: - Info container
                 HStack {
@@ -69,8 +69,7 @@ struct ActiveSessionView: View {
                         } label: {
                             Label("Roll", systemImage: "dice")
                                 .frame(width: 80)
-                                .textStyle(color: .black, font: .headline)
-                                .softShadowBackground()
+                                .asButton(.headline)
                         }
                         .opacity(viewModel.areButtonsActive ? 1 : 0.6)
                         .disabled(!viewModel.areButtonsActive)
@@ -99,6 +98,7 @@ struct ActiveSessionView: View {
                         }
                     }
                 }
+                .padding(.horizontal)
                 
                 // MARK: - List view picker
                 HStack {
@@ -126,34 +126,33 @@ struct ActiveSessionView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "person.3")
-                                    .textStyle(color: .black, font: .headline)
-                                    .softShadowBackground(cornerRadius: .infinity)
+                                    .asButton(.headline)
                             }
-                            
                         }
                         Button {
                             viewModel.showRollHistory()
                         } label: {
                             HStack {
                                 Image(systemName: "clock")
-                                    .textStyle(color: .black, font: .headline)
-                                    .softShadowBackground(cornerRadius: .infinity)
+                                    .asButton(.headline)
                             }
                         }
                     }
                 }
                 .softShadowBackground(color: .clear, cornerRadius: .infinity)
+                .padding(.horizontal)
                 
                 // MARK: - Players / roll history list
                 switch viewModel.listState {
                 case .playersPicker:
                     ActiveSessionPlayerPickerView(viewModel: viewModel)
+                        .padding(.leading)
                     
                 case .throwHistory:
                     ActiveSessionRollHistoryView(viewModel: viewModel)
+                        .padding(.leading)
                 }
             }
-            .padding([.horizontal, .top])
             .animation(.easeInOut, value: viewModel.listState)
             .animation(.snappy(duration: 0.3), value: viewModel.rollHistory)
             .navigationBarBackButtonHidden(true)
