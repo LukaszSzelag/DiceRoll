@@ -95,6 +95,7 @@ extension ActiveSessionView {
                 self.areButtonsActive = true
                 self.addRollRecord()
             }
+            updateLastActivityDate()
         }
         
         func showPlayers() {
@@ -134,6 +135,10 @@ extension ActiveSessionView {
             guard let player = activePlayer else { return }
             let record = RollRecord(result: result, player: player)
             activeSession.rollHistory.append(record)
+        }
+        
+        func updateLastActivityDate() {
+            activeSession.lastUpdated = .now
         }
     }
 }
