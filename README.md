@@ -44,7 +44,6 @@ These phase-based effects make interactions feel lively:
 - SwiftUI
 - SwiftData
 - MVVM
-- Combine / Swift Concurrency
 
 ## Project Structure
 - Models
