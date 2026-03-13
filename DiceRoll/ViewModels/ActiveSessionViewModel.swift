@@ -43,7 +43,9 @@ extension ActiveSessionView {
         var listState: ListContentState = .playersPicker
         
         // MARK: - Roll history properties
-        var rollHistory: [RollRecord] = []
+        var rollHistory: [RollRecord] {
+            activeSession.rollHistory.sorted { $0.rollDate > $1.rollDate }
+        }
         var filteredRollHistory: [RollRecord] {
             if let player = filterRollHistoryPlayer {
                 return rollHistory.filter { $0.player.id == player.id }
@@ -67,9 +69,6 @@ extension ActiveSessionView {
             if let firstPlayer = activeSession.players.first {
                 setActivePlayer(firstPlayer)
             }
-            
-            self.rollHistory = activeSession.rollHistory
-            sortRollHistory()
         }
         
         // MARK: - Functions
@@ -117,11 +116,7 @@ extension ActiveSessionView {
         func animatePlayerSwitch() {
             animatingPlayerSwitch.toggle()
         }
-        
-        func sortRollHistory() {
-            rollHistory.sort { $0.rollDate > $1.rollDate }
-        }
-        
+    
         func filterRollHistory() {
             if filteringRollHistory {
                 filteringRollHistory = false
@@ -138,7 +133,7 @@ extension ActiveSessionView {
         func addRollRecord() {
             guard let player = activePlayer else { return }
             let record = RollRecord(result: result, player: player)
-            rollHistory.insert(record, at: 0)
+            activeSession.rollHistory.append(record)
         }
     }
 }
