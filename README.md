@@ -5,12 +5,9 @@ DiceRoll is an iOS app built with SwiftUI that helps you run dice-rolling sessio
 ## Screenshots
 
 <p align="center">
-  <!-- Replace the src values below with your own uploaded assets -->
-  <img width="250" alt="DiceRoll_ActiveSession" src="https://github.com/user-attachments/assets/placeholder-1.png" />
+
+
   
-  <img width="250" alt="DiceRoll_PlayerPicker" src="https://github.com/user-attachments/assets/placeholder-2.png" />
-  
-  <img width="250" alt="DiceRoll_RollHistory" src="https://github.com/user-attachments/assets/placeholder-3.png" />
 </p>
 
 ## Features
