@@ -110,7 +110,6 @@ extension ActiveSessionView {
             if let index = activeSession.players.firstIndex(of: player) {
                 return CGFloat(index)
             }
-            
             return 0
         }
         

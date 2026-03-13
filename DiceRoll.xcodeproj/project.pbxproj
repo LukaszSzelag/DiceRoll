@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		98674F082F6449F800D12F6B /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 98674F072F6449F800D12F6B /* .gitignore */; };
+		98A04EA92F64B17700B471A8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 98A04EA82F64B17700B471A8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		984634DF2EF9E4E90027B3D5 /* DiceRoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiceRoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98674F072F6449F800D12F6B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		98A04EA82F64B17700B471A8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -38,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				98674F072F6449F800D12F6B /* .gitignore */,
+				98A04EA82F64B17700B471A8 /* README.md */,
 				984634E12EF9E4E90027B3D5 /* DiceRoll */,
 				984634E02EF9E4E90027B3D5 /* Products */,
 			);
@@ -115,6 +118,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98A04EA92F64B17700B471A8 /* README.md in Resources */,
 				98674F082F6449F800D12F6B /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
